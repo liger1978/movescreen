@@ -31,7 +31,7 @@ if 2 < len(sys.argv):
 else:
 	# Get focused window
 	out = subprocess.check_output(['xprop', '-root', '_NET_ACTIVE_WINDOW']).decode('ascii', 'ignore')
-	id = re.search("window id # (0x[0-9a-f]+),", out).group(1)
+	id = re.search("window id # (0x[0-9a-f]+)", out).group(1)
 
 # Get info on focused window,
 out = subprocess.check_output(['xwininfo', '-id', id, '-all']).decode('ascii', 'ignore')
